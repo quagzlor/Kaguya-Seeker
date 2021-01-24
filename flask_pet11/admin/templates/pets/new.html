@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+  Detailed information
+{% endblock %}
+{% block body %}
+<div class="well text-center">
+  <div class="jumbotron p-3">
+    <h4 class="modal-title">New pet registration page</h4>
+  </div>
+</div>
+
+
+<div class="modal-body">
+  <form action="{{url_for('create')}}" method="POST">
+    <div class="form-group">
+      <div class="col-md-4 mb-3">
+        <label>pet name:</label>
+        <input type="text" class="form-control mx-sm-3" name="name">
+      </div>
+  </div >
+</div>
+  <div class="input-group col-md-4 mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">owner name</label>
+    </div>
+    <select name="owner_id" class="custom-select">
+      {% for owner in owners %}
+        <option value="{{ owner.id }}">{{ owner.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit"> Add New Pet</button>
+  </div>
+
+</form>
+{% endblock %}

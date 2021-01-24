@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% include "header.html" %}
+{% block title %}
+Edit page
+{% endblock %}
+{% block body %}
+<h3>Edit </h3>
+<form action="{{url_for('update', id=pet.id)}}" method="post">
+  <div class="form-group">
+     <label>Pets name :</label>
+    <input type="text"  name="name" value="{{pet.name}}">
+  </div >
+
+  <div class="input-group col-md-4 mb-3">
+    <div class="input-group-prepend">
+
+      <label class="input-group-text" for="inputGroupSelect01">Owner</label>
+    </div>
+    <select name="owner_id" class="custom-select">
+      {% for owner in owners %}
+        <option value="{{ owner.id }}">{{ owner.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+<div>
+    <button type="submit" class="btn btn-primary btn-sm"> Update</button>
+
+  </div>
+</form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+</form>
+{% endblock %}

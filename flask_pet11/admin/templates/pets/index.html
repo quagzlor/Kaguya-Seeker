@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+aaaaaa
+{% endblock %}
+{% block body %}
+<div class ="container">
+  <div class="row">
+    <div class="col md-12">
+      <div class="jumbotron p-3">
+        <h2> New Pet Registration Page <a href="{{url_for('new')}}"> Add New Pet</a> </h2>
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+          </button>
+        {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Pet ID</th>
+        <th>Pets name</th>
+        <th>owners name</th>
+      </tr>
+
+
+    </thead>
+    <tbody>
+      {% for pet in pets %}
+      <tr>
+        <td>{{ pet.id }}</td>
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.owner.name }}</td>
+        <td><a href="{{url_for('info', id=pet.id)}}" class="btn btn-secondary btn-sm">Pet details</a></td>
+        <td><a href="{{url_for('edit', id=pet.id)}}" class="btn btn-secondary btn-sm">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete', id=pet.id)}}" method="post">
+             <a href="/delete/{{url_for('delete', id=pet.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"> </a>
+            <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
