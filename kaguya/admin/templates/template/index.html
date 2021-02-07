@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+aaaaaa
+{% endblock %}
+{% block body %}
+
+<div class="form-group">
+  <label>Feature Type:</label>
+  <select name="continent_id" class="col-md-2">
+
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Direction:</label>
+  <select name="continent_id" class="col-md-2">
+
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Continent:</label>
+  <select name="continent_id" class="col-md-2" placeholder="--------">
+    {% for continent in continents %}
+       <option value="{{ continent.id }}">{{ continent.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Ethnicity:</label>
+  <select name="ethnicity_id" class="col-md-2">
+    {% for ethnicity in ethnicitys %}
+       <option value="{{ ethnicity_id }}">{{ ethnicity.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+{% endblock %}
