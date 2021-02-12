@@ -4,7 +4,6 @@
 aaaaaa
 {% endblock %}
 {% block body %}
-
 <div class="form-group">
   <label>Feature Type:</label>
   <select name="continent_id" class="col-md-2">
@@ -32,7 +31,9 @@ aaaaaa
   <label>Ethnicity:</label>
   <select name="ethnicity_id" class="col-md-2">
     {% for ethnicity in ethnicitys %}
+      {% if {{ ethnicity.continent_id }} == continent_id %} {#Added by Divij#}
        <option value="{{ ethnicity_id }}">{{ ethnicity.name }}</option>
+      {% endif %} {#Added by Divij#}
     {% endfor %}
   </select>
 </div>
