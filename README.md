@@ -10,7 +10,21 @@ Index.html-- Manoj
 
 view.py modification-- divij
 ========
-update database using the following commands:
+**Rashmi**
+**replaced the following files**
+
+ethnicity.py
+
+feature.py
+
+featureType.py
+
+**added the following files**
+index1.html
+
+views2.py
+
+**update database using the following commands:**
 
 
 python run.py db migrate;
