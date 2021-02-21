@@ -15,4 +15,4 @@ python run.py db migrate
 python run.py db init
 python run.py db upgrade
 
-we need to import new table sql file in database
+p.s: we need to import new table sql file in database
