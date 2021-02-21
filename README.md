@@ -11,6 +11,8 @@ Index.html-- Manoj
 view.py modification-- divij
 ========
 update database using the following commands:
+
+
 python run.py db migrate;
 
 
