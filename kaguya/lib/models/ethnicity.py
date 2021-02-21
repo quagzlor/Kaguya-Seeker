@@ -6,6 +6,8 @@ class Ethnicity(db.Model):
     continent_id = db.Column(db.Integer, db.ForeignKey('continents.id'), nullable=False)
     name = db.Column(db.String(100), nullable=False)
     code = db.Column(db.String(100), nullable=False)
+    #feature = db.relationship('Feature', backref='ethnicity', uselist=False)
+
 
     def __init__(self, continent_id, name, code):
         self.continent_id = continent_id
