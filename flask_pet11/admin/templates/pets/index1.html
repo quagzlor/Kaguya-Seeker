@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+aaaaaa
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form method="POST">
+        {{ form.csrf_token}}
+        <div class="form-group">
+          <label for="email">Continent:</label>
+          {{ form.continent(class="form-control") }}
+          <option></option>
+        </div>
+        <div class="form-group">
+          <label for="email">Ethnicity:</label>
+          {{ form.ethnicity(class="form-control")}}
+        </div>
+        <div class="form-group">
+          <label for="email">Feature:</label>
+          {{ form.feature(class="form-control")}}
+        </div>
+        <input type="submit" class="btn btn-success" btn-lg>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+
+continent_select = document.getElementById('continent');
+ethnicity_select = document.getElementById('ethnicity');
+feature_select = document.getElementById('feature');
+
+continent_select.onchange = function(){
+  continent = continent_select.value;
+  <!-- alert(continent);-->
+  fetch('ethnicity/' + continent).then(function(response){
+    response.json().then(function(data) {
+      optionHTML = '';
+      optionHTML += '<option></option>'
+      for (ethnicity of data.ethnicitycontinent) {
+        optionHTML += '<option value="' + ethnicity.id +'">' + ethnicity.name + '</option>'
+      }
+      ethnicity_select.innerHTML = optionHTML;
+  });
+ });
+}
+</script>
+{% endblock %}
