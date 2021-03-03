@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+aaaaaa
+{% endblock %}
+{% block body %}
+<!--This script is used to update ethnicitys when data from continents is selected-->
+<script> 
+document.getElementById('continent_id').onchange = function() {
+var cont_id = this.value;
+        $.ajax({
+          data: JSON.stringify({
+            'cont_id': cont_id,
+        }),
+        contentType: 'application/json; charset=utf-8',
+          type:"POST",
+          url : "{{ url_for('ethnicitys_update') }}",
+          success: function(data) {
+            $("#ethnicity_id").empty();
+            for (var i = 0; i < data.length; i++) {
+                $("#ethnicity_id").append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+            }
+          }
+        })
+      };
+</script>
+
+
+<div class="form-group">
+  <label>Feature Type:</label>
+  <select name="feature_id" class="col-md-2">
+
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Direction:</label>
+  <select name="direction_id" class="col-md-2">
+
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Continent:</label>
+  <select name="continent_id" id="continent_id" class="col-md-2">
+    {% for continent in continents %}
+       <option value="{{ continent.id }}">{{ continent.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Ethnicity:</label>
+  <select name="ethnicity_id" id="ethnicity_id" class="col-md-2">
+    {% for ethnicity in ethnicitys %}
+       <option value="{{ ethnicity_id }}">{{ ethnicity.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+{% endblock %}
