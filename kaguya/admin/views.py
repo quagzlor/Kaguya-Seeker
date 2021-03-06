@@ -77,6 +77,20 @@ def ethnicitybycontinent(get_ethnicity):
         ethnicityArray.append(ethnicityObj)
     return jsonify({'ethnicitycontinent' : ethnicityArray}) 
 
+@app.route('/ethnicity/<get_feature>')
+def featurebyethnicity(get_feature):
+    if get_feature:
+      feature = Feature.query.filter_by(ethnicity_id=get_feature).all()
+    else:
+      feature = Feature.query.all()
+       
+    featureArray = []
+    for ethnicity in feature:
+        featureObj = {}
+        featureObj['id'] = ethnicity.id
+        featureObj['name'] = ethnicity.name
+        featureArray.append(featureObj)
+    return jsonify({'featureethnicity' : featureArray}) 
 
 #@app.route('/ethnicity/<get_ethnicity>')
 #def ethnicitybycontinent(get_ethnicity):
