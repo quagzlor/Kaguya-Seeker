@@ -27,6 +27,7 @@
    
 #     return render_template('template/search.html', ethnicitys=ethnicitys, continent_id = continent_id, continent = continent)
 
+from kaguya.lib.models.featureType import FeatureType
 from flask import render_template, request, redirect, url_for, flash, jsonify, json
 
 from admin import app
@@ -80,9 +81,9 @@ def ethnicitybycontinent(get_ethnicity):
 @app.route('/ethnicity/<get_feature>')
 def featurebyethnicity(get_feature):
     if get_feature:
-      feature = Feature.query.filter_by(ethnicity_id=get_feature).all()
+      feature = FeatureType.query.filter_by(id=get_feature).all()
     else:
-      feature = Feature.query.all()
+      feature = FeatureType.query.all()
        
     featureArray = []
     for ethnicity in feature:
