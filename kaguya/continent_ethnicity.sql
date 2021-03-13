@@ -74,22 +74,3 @@ INSERT INTO ethnicitys(id, continent_id, name, code) VALUES (61, 2, 'Turkey', 'T
 INSERT INTO ethnicitys(id, continent_id, name, code) VALUES (62, 3, 'Ukraine', 'UK');
 INSERT INTO ethnicitys(id, continent_id, name, code) VALUES (63, 4, 'United States', 'US');
 INSERT INTO ethnicitys(id, continent_id, name, code) VALUES (64, 3, 'Yugoslavia', 'YU');
-
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Albedo Feature', 'AL');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Catena', 'CA');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Crater', 'AA');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Dorsor', 'DO');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Fossa', 'FO');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Lacus', 'LC');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Landing site name', 'LF');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Mare', 'ME');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Mons', 'MO');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Oceanus', 'OC');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Palus', 'PA');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Planitia', 'PL');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Promontorium', 'PR');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Rima', 'RI');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Rupes', 'RU');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Satellite Feature', 'SF');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Sinus', 'SI');
-INSERT INTO feature_types(id,  name, code) VALUES (1, 'Vallis', 'VA');

@@ -35,7 +35,7 @@ feature_select = document.getElementById('feature');
 
 continent_select.onchange = function(){
   continent = continent_select.value;
-  <!-- alert(continent);-->
+  // alert(continent) 
   fetch('ethnicity/' + continent).then(function(response){
     response.json().then(function(data) {
       optionHTML = '';
@@ -47,22 +47,5 @@ continent_select.onchange = function(){
   });
  });
 }
-
-ethnicity_select.onchange = function(){
-  ethnicity = ethnicity_select.value;
-  <!-- alert(ethnicity);-->
-  fetch('feature/' + ethnicity).then(function(response){
-    response.json().then(function(data) {
-      optionHTML = '';
-      optionHTML += '<option></option>'
-      for (feature of data.featureethnicity) {
-        optionHTML += '<option value="' + feature.id +'">' + feature.name + '</option>'
-      }
-      feature_select.innerHTML = optionHTML;
-  });
- });
-}
 </script>
-
-
 {% endblock %}

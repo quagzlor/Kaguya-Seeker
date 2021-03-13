@@ -25,9 +25,8 @@
 #     print(Continent)
 #     ethnicitys = Ethnicity.query.filter(Ethnicity.id == continent_id).order_by(Ethnicity.id).all()
    
-#     return render_template('template/search.html', ethnicitys=ethnicitys, continent_id = continent_id, continent = continent)
+#     return render_template('template/index1.html', ethnicitys=ethnicitys, continent_id = continent_id, continent = continent)
 
-from kaguya.lib.models.featureType import FeatureType
 from flask import render_template, request, redirect, url_for, flash, jsonify, json
 
 from admin import app
@@ -61,6 +60,11 @@ def index():
 
        return '<table border ="3"><thead><tr><th>Continent</th><th>Ethnicity</th><th>Code</th></tr><tr><td>{}</td><td>{}</td><td>{}</td></tr></thead>'.format(continent.name, ethnicity.name, continent.code)
 #       return '<h1>Continent : {}, Ethnicity: {}, Code: {}, Feature: </h1>'.format(continent.name, ethnicity.name, continent.code, feature.name)
+
+    # else:
+    #     continent = Continent.query.filter_by(id=form.continent.data).first()
+    #     return '<table border ="3"><thead><tr><th>Continent</th><th>Code</th></tr><tr><td>{}</td><td>{}</td></tr></thead>'.format(continent.name, continent.code)
+
     return render_template('/template/index1.html', form=form)
 
 @app.route('/ethnicity/<get_ethnicity>')
@@ -78,22 +82,24 @@ def ethnicitybycontinent(get_ethnicity):
         ethnicityArray.append(ethnicityObj)
     return jsonify({'ethnicitycontinent' : ethnicityArray}) 
 
-@app.route('/ethnicity/<get_feature>')
-def featurebyethnicity(get_feature):
-    if get_feature:
-      feature = FeatureType.query.filter_by(id=get_feature).all()
-    else:
-      feature = FeatureType.query.all()
-       
-    featureArray = []
-    for ethnicity in feature:
-        featureObj = {}
-        featureObj['id'] = ethnicity.id
-        featureObj['name'] = ethnicity.name
-        featureArray.append(featureObj)
-    return jsonify({'featureethnicity' : featureArray}) 
+# @app.route('/continent', methods=['GET', 'POST'])
+# def continent():
+#     form = Form()
+#     form.continent.choices = [(continent.id, continent.name) for continent in Continent.query.all()]
 
-#@app.route('/ethnicity/<get_ethnicity>')
+#     if request.method == 'POST':
+
+#         continent = Continent.query.filter_by(id=form.continent.data).first()
+
+#         return '<table border ="3"><thead><tr><th>Continent</th><th>Code</th></tr><tr><td>{}</td><td>{}</td></tr></thead>'.format(continent.name, continent.code)
+
+#         return render_template('/template/index1.html', form=form)
+       
+    # select = request.form.get('continent_select')
+    # return(str(select)) # just to see what select is
+
+
+#@app.route('/ethni city/<get_ethnicity>')
 #def ethnicitybycontinent(get_ethnicity):
     #ethnicity = Ethnicity.query.filter_by(continent_id=get_ethnicity).all()
     #ethnicityArray = []

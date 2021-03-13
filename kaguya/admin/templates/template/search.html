@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% include 'header.html'%}
+{% block title %}
+aaaaaa
+{% endblock %}
+{% block body %}
+
+
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Continent Name</th>
+        <th scope="col">Ethnicity Name</th>
+     
+    </tr>
+</thead>
+<tbody>
+    {% for form in forms %} 
+    <tr>
+        <td scope="row"> {{ form.continent.name }} </td>
+         <!-- <td> <table border ="3"><thead><tr><th>Continent</th><th>Ethnicity</th><th>Code</th></tr><tr><td>{}</td><td>{}</td><td>{}</td></tr></thead>'.format(continent.name, ethnicity.name, continent.code)</td> -->
+       <td>{{ form.ethnicity.name }}</td>
+    </tr>
+  {% endfor %} 
+</tbody>
+</table> 
+
+
+
+{% endblock %}
