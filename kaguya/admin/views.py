@@ -31,7 +31,7 @@ from flask import render_template, request, redirect, url_for, flash, jsonify, j
 
 from admin import app
 
-from lib.models import Ethnicity, Continent
+from lib.models import Ethnicity, Continent, featureType
 
 from lib.db import db
 
@@ -53,7 +53,7 @@ def index():
     form.continent.choices = [(continent.id, continent.name) for continent in Continent.query.all()]
 
     if request.method == 'POST':
-       #feature =  Feature.query.filter_by(id=form.feature.data).first()
+       featuretype =  featureType.query.filter_by(id=form.feature.data).first()
        continent = Continent.query.filter_by(id=form.continent.data).first()
        ethnicity = Ethnicity.query.filter_by(id=form.ethnicity.data).first()
        
